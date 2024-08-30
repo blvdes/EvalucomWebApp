@@ -2,6 +2,7 @@ Evalucom Web Application Submission
 
 
 Prerequisites:
+- python3
 - Django
 - requests
 
