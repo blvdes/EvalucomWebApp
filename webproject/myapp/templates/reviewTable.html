@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="navBar">
+    <a href="/">Now Playing</a>
+    <a href="/reviews">Reviews</a>
+    <a href="/search">Search</a>
+</div>
+
+<head>
+    <link rel="stylesheet", href="{% static 'cssFiles/reviewTableStyle.css' %}">
+    <strong style="align-self: center; font-size: 30; padding: 10px;">Reviews</strong>
+</head>
+
+<div class="reviews">
+    <body>
+        <p></p>
+        <ul>
+            {% for review in reviewData%}
+                <li>
+                    <strong>{{review.title}}</strong>
+                    <p>{{review.text}}</p>
+                    <strong>Score: {{review.score}}</strong>  
+                    <p style="padding-bottom: 50px;">{{review.date}}</p>
+                </li>                
+            {% endfor %}
+        </ul>
+    </body>
+</div>

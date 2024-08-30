@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <div class="navBar">
+        <a href="/">Now Playing</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/search">Search</a>
+    </div>
+
+    <p></p>
+
+    <head>
+        <link rel="stylesheet", href="{% static 'cssFiles/homeTableStyle.css' %}">
+        <strong style="align-self: center; font-size: 30px;">Movies: Now Playing - Page {{currentPage}}</strong>
+    </head>
+    <body>
+        <ol class="alternating-colors">
+            {% for movie in list %}
+                <li>
+                    <strong>{{movie.title}}</strong>
+                    <p>{{movie.desc}}</p>
+                    <div class="IDReviewLine">    
+                        <p>ID: {{movie.id}}</p>
+                        <a href="/review/{{movie.id}}">
+                            <button id="reviewButton" style="height: fit-content; border-radius: 5px; cursor: pointer;">Review</button>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+        <p></p>
+        <div class="doubleButton">
+            {% if currentPage > 1 %}
+                <l><a href="/{{redirectVar}}{{prevPageNumber}}">Previous Page</a></l>
+                <r><a href="/{{redirectVar}}{{nextPageNumber}}">Next Page</a></r>
+            {% else %}  
+                <r><a href="/{{redirectVar}}{{nextPageNumber}}">Next Page</a></r>
+            {% endif %}
+        </div>
+    </body>    
+</html>
