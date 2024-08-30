@@ -14,7 +14,6 @@ To run:
 
 
 Features:
-
 - Paged results of movies under the TMDB 'Now Playing' category.
 - Search function using TMDB API queries.
 - Review movies returned on pages or search result, saved in database table.
